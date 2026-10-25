@@ -1,0 +1,22 @@
+﻿@model Book
+
+<div class="col">
+    <div class="card h-100 shadow-sm">
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Title"
+                 style="height: 250px; object-fit: cover;" />
+        }
+        <div class="card-body">
+            <h5 class="card-title">@Model.Title</h5>
+            <p class="card-text text-muted mb-2">@Model.Author</p>
+            <span class="badge bg-secondary">@Model.Category.Name</span>
+            <span class="badge bg-light text-dark border">@Model.City.Name</span>
+            <p class="fw-bold fs-5 mt-3 mb-0">@Model.Price.ToString("0.00") €</p>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+            <a asp-controller="Books" asp-action="Details" asp-route-id="@Model.Id"
+               class="btn btn-outline-primary btn-sm">Details</a>
+        </div>
+    </div>
+</div>

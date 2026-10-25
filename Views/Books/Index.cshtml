@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Book>
+@{
+    ViewData["Title"] = "Books for sale";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>@ViewData["Title"]</h1>
+    <a asp-action="Create" class="btn btn-success">+ Add a book</a>
+</div>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">No books yet. Be the first to add one!</p>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+        @foreach (var book in Model)
+        {
+            <partial name="_BookCard" model="book" />
+        }
+    </div>
+}
