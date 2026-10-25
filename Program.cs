@@ -14,6 +14,10 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+var culture = new System.Globalization.CultureInfo("en-US");
+System.Globalization.CultureInfo.DefaultThreadCurrentCulture = culture;
+System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = culture;
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
