@@ -9,6 +9,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped<IBookService, BookService>();
 
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
