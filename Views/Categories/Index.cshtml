@@ -1,0 +1,17 @@
+﻿@model IEnumerable<CategoryViewModel>
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="list-group col-md-6">
+    @foreach (var category in Model)
+    {
+        <a asp-action="Details" asp-route-id="@category.Id"
+           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            @category.Name
+            <span class="badge bg-primary rounded-pill">@category.BookCount</span>
+        </a>
+    }
+</div>
