@@ -67,5 +67,14 @@ namespace BookSwap.Services
                 .OrderBy(c => c.Name)
                 .ToListAsync();
         }
+        public async Task<IEnumerable<Book>> GetLatestAsync(int count)
+        {
+            return await _context.Books
+                .Include(b => b.Category)
+                .Include(b => b.City)
+                .OrderByDescending(b => b.CreatedOn)
+                .Take(count)
+                .ToListAsync();
+        }
     }
 }

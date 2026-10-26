@@ -12,5 +12,7 @@ namespace BookSwap.Services
 
         Task<IEnumerable<Category>> GetCategoriesAsync();
         Task<IEnumerable<City>> GetCitiesAsync();
+
+        Task<IEnumerable<Book>> GetLatestAsync(int count);
     }
 }
